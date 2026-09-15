@@ -9,7 +9,10 @@
     userFile = "myhost-user.yaml";
   };
 in {
-  flake-file.inputs.nix-secrets.url = "git+ssh://git@github.com/<you>/nix-secrets.git";
+  flake-file.inputs.nix-secrets = {
+    url = "git+ssh://git@github.com/<you>/nix-secrets.git";
+    flake = false;
+  };
 
   flake.modules.nixos."myhost" = {
     imports = [
