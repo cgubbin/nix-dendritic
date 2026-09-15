@@ -1,4 +1,5 @@
 {
+  self,
   inputs,
   config,
   ...
@@ -29,6 +30,7 @@ in {
   };
 
   flake.nixosConfigurations."myhost" = inputs.starter.lib.mkNixos {
+    inherit self;
     hostname = "myhost";
     platform = "wsl"; # or native
   };
