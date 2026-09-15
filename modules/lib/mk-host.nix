@@ -1,5 +1,6 @@
 {inputs, ...}: {
   flake.lib.mkNixos = {
+    self,
     hostname,
     platform,
   }:
@@ -7,11 +8,11 @@
       system = "x86_64-linux";
       specialArgs = {inherit inputs;};
       modules = [
-        inputs.self.modules.nixos.system-base
+        self.modules.nixos.system-base
         (
           if platform == "wsl"
-          then inputs.self.modules.nixos.wsl
-          else inputs.self.modules.nixos.native
+          then self.modules.nixos.wsl
+          else self.modules.nixos.native
         )
         inputs.self.modules.nixos.${hostname}
       ];
