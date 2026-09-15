@@ -21,6 +21,8 @@ in {
       (inputs.starter.lib.mkSopsPasswordUser {username = "myuser";})
     ];
 
+    system.stateVersion = "26.05"; # set once, at first install — never bump this later
+
     home-manager.sharedModules = [
       sops.homeManager
       {

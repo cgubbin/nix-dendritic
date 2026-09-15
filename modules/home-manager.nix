@@ -1,6 +1,6 @@
 {inputs, ...}: {
   flake-file.inputs.home-manager = {
-    url = "github:nix-community/home-manager/release-26.05";
+    url = "https://flakehub.com/f/nix-community/home-manager/0.1";
     inputs.nixpkgs.follows = "nixpkgs";
   };
 

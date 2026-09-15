@@ -6,8 +6,10 @@
 
     users.users."<username>" = {
       isNormalUser = true;
+      group = "<username>";
       extraGroups = ["wheel"];
     };
+    users.groups."<username>" = {};
   };
 
   flake.modules.homeManager."<username>" = {
