@@ -44,6 +44,7 @@
     username,
     secretName ? "${username}-password",
   }: {config, ...}: {
+    users.mutableUsers = false;
     sops.secrets.${secretName}.neededForUsers = true;
     users.users.${username}.hashedPasswordFile = config.sops.secrets.${secretName}.path;
   };
