@@ -17,6 +17,7 @@
       inputs.starter.modules.homeManager.claude-code
       inputs.starter.modules.homeManager.cli-tools
       inputs.starter.modules.homeManager.cloud-tools
+      inputs.starter.modules.homeManager.git
       (inputs.import-tree ../../home/"<username>")
     ];
   };
