@@ -2,10 +2,10 @@
   programs.git = {
     settings = {
       user = {
-        name = "<username>";
-        email = "<email>";
+        name = "<ghusername>";
+        email = "<wpemail>";
       };
-      github.user = "<username>";
+      github.user = "<ghusername>";
     };
   };
 }

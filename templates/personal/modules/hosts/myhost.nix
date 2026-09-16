@@ -6,39 +6,52 @@
 }: let
   sops = inputs.starter.lib.mkSopsHost {
     secretsPath = toString inputs.nix-secrets;
-    hostFile = "myhost.yaml";
-    userFile = "myhost-user.yaml";
+    hostFile = "<hostname>.yaml";
+    userFile = "<hostname>-user.yaml";
   };
 in {
   flake-file.inputs.nix-secrets = {
-    url = "git+ssh://git@github.com/<you>/nix-secrets.git";
+    url = "git+ssh://git@github.com/<ghusername>/nix-secrets.git";
     flake = false;
   };
 
-  flake.modules.nixos."myhost" = {
+  flake.modules.nixos."<hostname>" = {
     imports = [
       sops.nixos
-      (inputs.starter.lib.mkSopsPasswordUser {username = "myuser";})
-      self.modules.nixos."myuser"
+      (inputs.starter.lib.mkSopsPasswordUser {username = "<username>";})
+      self.modules.nixos."<username>"
     ];
 
     system.stateVersion = "26.05"; # set once, at first install — never bump this later
-    home-manager.users."myuser".home.stateVersion = "26.05";
+    home-manager.users."<username>".home.stateVersion = "26.05";
+    networking.hostName = "<hostname>";
 
+    # Add any other unfree packages here...
     nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (inputs.nixpkgs.lib.getName pkg) ["terraform"];
     home-manager.useGlobalPkgs = true; # makes home-manager use the system's pkgs, config included
 
     home-manager.sharedModules = [
       sops.homeManager
-      {
-        sops.secrets."netrc".path = "${config.home.homeDirectory}/.netrc";
-      }
+      (
+        {config, ...}: {
+          sops.secrets."netrc".path = "${config.home.homeDirectory}/.netrc";
+        }
+      )
     ];
+
+    wsl = {
+      wslConf = {
+        network.hostname = "<hostname>";
+      };
+    };
+
+    # to enable the shell, replace with the chosen shell
+    # programs.fish.enable = true;
   };
 
-  flake.nixosConfigurations."myhost" = inputs.starter.lib.mkNixos {
+  flake.nixosConfigurations."<hostname>" = inputs.starter.lib.mkNixos {
     inherit self;
-    hostname = "myhost";
+    hostname = "<hostname>";
     platform = "wsl"; # or native
   };
 }
