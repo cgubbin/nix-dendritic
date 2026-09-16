@@ -150,18 +150,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1789267039,
-        "narHash": "sha256-LWiBv9yAYFi2LPbUhDGHPGKYskJQjj2fw12OlyO1uQo=",
-        "owner": "nix-community",
-        "repo": "home-manager",
-        "rev": "ec172013fa62135f58fb58dd17ae9651e8f39727",
-        "type": "github"
+        "lastModified": 1789482455,
+        "narHash": "sha256-pD3qVlQ4mUCFoTWrYtxecpSitQMsgJvJIN0FUIDZoEU=",
+        "rev": "efa3ccb4c3cc90d832eab232976379058fa75aa3",
+        "revCount": 7276,
+        "type": "tarball",
+        "url": "https://api.flakehub.com/f/pinned/nix-community/home-manager/0.1.7276%2Brev-efa3ccb4c3cc90d832eab232976379058fa75aa3/01a0a578-35cc-71f0-9a09-4b9f574c1bfa/source.tar.gz"
       },
       "original": {
-        "owner": "nix-community",
-        "ref": "release-26.05",
-        "repo": "home-manager",
-        "type": "github"
+        "type": "tarball",
+        "url": "https://flakehub.com/f/nix-community/home-manager/0.1"
       }
     },
     "import-tree": {
@@ -229,16 +227,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1789157919,
-        "narHash": "sha256-3+r8UDwPkTlB9hhHoN4rjGtZow3+wEFOganBKurhJhY=",
+        "lastModified": 1789164534,
+        "narHash": "sha256-DoYGPM6QpnYBLWj9gGw6ZwAzIX+HrAVov1BoT+8Jixo=",
         "owner": "nix-community",
         "repo": "NixOS-WSL",
-        "rev": "b98199a76ab180be55f7a6a97bd4984a87c99964",
+        "rev": "72c92b11bb8289e6651c7fef29cc0a885fd6a255",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
-        "ref": "release-26.05",
+        "ref": "main",
         "repo": "NixOS-WSL",
         "type": "github"
       }

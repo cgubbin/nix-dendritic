@@ -1,6 +1,6 @@
 {inputs, ...}: {
   flake-file.inputs.nixos-wsl = {
-    url = "github:nix-community/NixOS-WSL/release-26.05";
+    url = "github:nix-community/NixOS-WSL/main";
     inputs.nixpkgs.follows = "nixpkgs";
   };
 
