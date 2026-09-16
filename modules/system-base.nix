@@ -5,7 +5,5 @@
       home-manager
       sops
     ];
-
-    boot.binfmt.emulatedSystems = ["aarch64-linux"];
   };
 }

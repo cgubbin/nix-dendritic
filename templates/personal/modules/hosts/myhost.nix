@@ -19,9 +19,14 @@ in {
     imports = [
       sops.nixos
       (inputs.starter.lib.mkSopsPasswordUser {username = "myuser";})
+      self.modules.nixos."myuser"
     ];
 
     system.stateVersion = "26.05"; # set once, at first install — never bump this later
+    home-manager.users."myuser".home.stateVersion = "26.05";
+
+    nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (inputs.nixpkgs.lib.getName pkg) ["terraform"];
+    home-manager.useGlobalPkgs = true; # makes home-manager use the system's pkgs, config included
 
     home-manager.sharedModules = [
       sops.homeManager
