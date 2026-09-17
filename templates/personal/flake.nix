@@ -11,6 +11,6 @@
     };
     import-tree.url = "github:denful/import-tree";
     nixpkgs.url = "https://channels.nixos.org/nixpkgs-unstable/nixexprs.tar.zst";
-    starter.url = "github:cgubbin/nix-dendritic";
+    starter.url = "github:cgubbin/wsl-nix-config";
   };
 }

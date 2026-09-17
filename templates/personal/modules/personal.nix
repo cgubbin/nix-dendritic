@@ -1,3 +1,3 @@
 {...}: {
-  flake-file.inputs.starter.url = "github:cgubbin/nix-dendritic";
+  flake-file.inputs.starter.url = "github:cgubbin/wsl-nix-config";
 }
