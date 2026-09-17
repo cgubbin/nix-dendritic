@@ -59,7 +59,7 @@ Deploying your own machine from this starter — **do this in a new, separate re
 
 ```bash
 mkdir my-nix-config && cd my-nix-config
-nix flake init -t github:cgubbin/wsl-nix-config#personal
+nix flake init -t github:wave-photonics/nix-wsl-template#personal
 git init && git add -A
 ```
 
@@ -70,5 +70,5 @@ The template copies its own `README.md` into your new repo — open it and follo
 This is the load-bearing design decision in the whole repo, so it's worth being explicit:
 
 - **This repo (the starter)** contains only generic, shareable config. Nothing here should ever contain a real username, email, hostname, or `stateVersion` — those are per-deployment facts, not shared features.
-- **Your personal repo** depends on this one as a flake input (`flake-file.inputs.starter.url = "github:cgubbin/wsl-nix-config";`) and adds identity, secrets config, and your own opinionated extras.
+- **Your personal repo** depends on this one as a flake input (`flake-file.inputs.starter.url = "github:wave-photonics/nix-wsl-template";`) and adds identity, secrets config, and your own opinionated extras.
 - Changes to this flake are mirrored by **updating** this one through `nix flake update starter` in your personal repo, followed by reviewing the `flake.lock` diff — an explicit, reviewable step, never a silent merge.

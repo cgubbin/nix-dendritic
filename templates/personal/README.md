@@ -1,6 +1,6 @@
 # my-nix-config
 
-Personal NixOS + home-manager config, scaffolded from the [wsl-nix-config](https://github.com/cgubbin/wsl-nix-config) starter and built with the dendritic pattern via [flake-file](https://github.com/denful/flake-file).
+Personal NixOS + home-manager config, scaffolded from the [wsl-nix-config](https://github.com/wave-photonics/nix-wsl-template) starter and built with the dendritic pattern via [flake-file](https://github.com/denful/flake-file).
 
 This repo depends on the starter as a flake input. Nothing here should duplicate what the starter already provides — this repo only holds what's specific to *you*: identity, hostnames, secrets, and your own opinionated extras. 
 
@@ -13,7 +13,7 @@ Delete this section once you've finished it — everything below is a one-time w
 In a new, empty directory (not inside the starter repo):
 ```bash
 mkdir my-nix-config && cd my-nix-config
-nix flake init -t github:cgubbin/wsl-nix-config#personal
+nix flake init -t github:wave-photonics/nix-wsl-template#personal
 ```
 
 ## 1. Initialize git and stage everything
