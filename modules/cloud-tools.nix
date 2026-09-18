@@ -1,5 +1,9 @@
-{config, ...}: {
-  flake.modules.homeManager.cloud-tools = {pkgs, ...}: {
+_: {
+  flake.modules.homeManager.cloud-tools = {
+    pkgs,
+    config,
+    ...
+  }: {
     home = {
       packages = with pkgs; [
         ansible
