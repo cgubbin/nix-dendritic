@@ -1,7 +1,6 @@
 {
   self,
   inputs,
-  config,
   ...
 }: let
   sops = inputs.starter.lib.mkSopsHost {
@@ -23,21 +22,23 @@ in {
     ];
 
     system.stateVersion = "26.05"; # set once, at first install — never bump this later
-    home-manager.users."<username>".home.stateVersion = "26.05";
     networking.hostName = "<hostname>";
 
     # Add any other unfree packages here...
     nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (inputs.nixpkgs.lib.getName pkg) ["terraform"];
-    home-manager.useGlobalPkgs = true; # makes home-manager use the system's pkgs, config included
 
-    home-manager.sharedModules = [
-      sops.homeManager
-      (
-        {config, ...}: {
-          sops.secrets."netrc".path = "${config.home.homeDirectory}/.netrc";
-        }
-      )
-    ];
+    home-manager = {
+      users."<username>".home.stateVersion = "26.05";
+      useGlobalPkgs = true; # makes home-manager use the system's pkgs, config included
+      sharedModules = [
+        sops.homeManager
+        (
+          {config, ...}: {
+            sops.secrets."netrc".path = "${config.home.homeDirectory}/.netrc";
+          }
+        )
+      ];
+    };
 
     wsl = {
       wslConf = {

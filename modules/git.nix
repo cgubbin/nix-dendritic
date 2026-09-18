@@ -1,4 +1,4 @@
-{...}: {
+_: {
   flake.modules.homeManager.git = {pkgs, ...}: {
     services.ssh-agent.enable = true;
 
